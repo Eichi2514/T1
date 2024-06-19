@@ -29,7 +29,6 @@ public class s4 {
 }
 
 class 전사 {
-    //인스턴스 변수
     String 이름;
     int 나이;
     무기 a무기;
@@ -39,7 +38,7 @@ class 전사 {
     }
 
     void 공격() {
-        System.out.printf(이름);
+        System.out.printf(this.이름);
         this.a무기.사용();
     }
 }
