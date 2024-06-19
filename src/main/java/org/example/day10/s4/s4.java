@@ -30,6 +30,7 @@ public class s4 {
 class 전사 {
     //인스턴스 변수
     String 이름;
+    String 성별;
     int 나이;
     무기 a무기;
 
