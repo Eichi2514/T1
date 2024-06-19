@@ -32,12 +32,13 @@ class 로봇 {
 
     static 사람 get사람2() {
         System.out.println("2");
-        return null;
+        return new 사람();
     }
 
     static 사람 get사람3() {
         System.out.println("3");
-        return null;
+        사람 a사람 = new 사람();
+        return new 사람();
     }
 
     static 사람 get사람4() {
@@ -50,9 +51,8 @@ class 로봇 {
         return null;
     }
 
-    static 사람 get사람6(int x, boolean y) {
+    static void get사람6(int x, boolean y) {
         System.out.println(x + ", " + y);
-        return null;
     }
 }
 
