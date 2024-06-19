@@ -21,6 +21,7 @@ public class s4 {
         a전사.공격();
         //출력 : 진이 활로 공격합니다.
 
+        a전사.이름 = "칸";
         a전사.a무기 = new 칼();
         a전사.공격();
         //출력 : 진이 칼로 공격합니다.
@@ -30,7 +31,6 @@ public class s4 {
 class 전사 {
     //인스턴스 변수
     String 이름;
-    String 성별;
     int 나이;
     무기 a무기;
 
@@ -39,22 +39,24 @@ class 전사 {
     }
 
     void 공격() {
-        this.a무기.사용(this.이름);
+        System.out.printf(이름);
+        this.a무기.사용();
     }
 }
 
 class 무기 {
-    void 사용(String 사용자_이름) {
+    void 사용() {
     }
 }
 
 class 칼 extends 무기 {
-    void 사용(String 사용자_이름) {
-        System.out.println(사용자_이름);
+    void 사용() {
+        System.out.println("이 활로 공격합니다.");
     }
 }
 
 class 활 extends 무기 {
-    void 사용(String 사용자_이름) {
+    void 사용() {
+        System.out.println("이 칼로 공격합니다.");
     }
 }
