@@ -25,11 +25,11 @@ class Article {
     String i_id;
     String i_pw;
 
-    Article() {
-        ++i_number;
-        o_number = i_number;
-        System.out.println(o_number);
-    }
+//    Article() {
+//        ++i_number;
+//        o_number = i_number;
+//        System.out.println(o_number);
+//    }
 
     Article(String o_id, String o_pw) {
         this.i_id = o_id;
