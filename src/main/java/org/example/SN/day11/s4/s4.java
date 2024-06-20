@@ -5,9 +5,9 @@ public class s4 {
 
         String s = "핫둘셋넷닷엿읽엳앟열";
 
-        char c = '하';
+        char c = '나';
 
-        System.out.println(s+c);
+        System.out.println();
 
     }
 }
