@@ -8,11 +8,22 @@ public class s2 {
 
 //        System.out.println("번호 : " + a사람.Id());
         System.out.println("번호 : " + a사람.getId());
+        System.out.println("나이 : " + a사람.getAge());
     }
 }
 
 class 사람 {
     private int id;
+    private int age;
+
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
     public int getId(){
         return this.id;
