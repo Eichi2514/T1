@@ -1,20 +1,24 @@
 package org.example.PM.p391;
 
 public class p391 {
-}
-
-abstract class Car extends Machine {
-    void turnOn() {
-    }
-
-    void turnOff() {
+    public static void main(String[] args) {
     }
 }
 
-class Machine {
-    void turnOn() {
+abstract class Machine {
+    public abstract void turnOn();
+
+    public abstract void turnOff();
+}
+
+class Car extends Machine {
+
+    public void turnOn() {
+        System.out.println(" ");
     }
 
-    void turnOff() {
+    public void turnOff() {
+        System.out.println(" ");
     }
 }
+
