@@ -27,14 +27,14 @@ public class s4 {
             rsArr[++rsArrLastIndex] = n;
         }
         System.out.println(Arrays.toString(rsArr));
-////////////////////////////////////////////////////////////////////////
+//int[] arr = {33, 2, 55, 4, 51, 6, 71, 18, 29, 10};//////////////////////////////////////////////////////////////////////
         arr = Arrays.stream(arr)
                 .filter(e -> e % 2 == 0) // 걸러내기
                 .map(e -> e * 2) // 연산 부여
                 .toArray(); // Array형으로 저장
 
         System.out.println(Arrays.toString(arr));
-////////////////////////////////////////////////////////////////////////
+//int[] arr = {33, 2, 55, 4, 51, 6, 71, 18, 29, 10};//////////////////////////////////////////////////////////////////////
         List<Integer> resultAl = new ArrayList<Integer>();
 
         //filter
@@ -46,7 +46,8 @@ public class s4 {
             resultAl.set(i, newValue);
         }
         System.out.println(resultAl);
-////////////////////////////////////////////////////////////////////////
+//int[] arr = {33, 2, 55, 4, 51, 6, 71, 18, 29, 10};//////////////////////////////////////////////////////////////////////
+//List<Integer> resultAl = new ArrayList<Integer>();//////////////////////////////////////////////////////////////////////
         resultAl = Arrays.stream(arr)
                 .filter(e -> e%2 == 0)
                 .map(e->e*2)

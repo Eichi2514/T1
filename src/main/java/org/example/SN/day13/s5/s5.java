@@ -1,22 +1,22 @@
 package org.example.SN.day13.s5;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class s5 {
     public static void main(String[] args) {
-        int[] arr = {33, 2, 55, 4, 51, 6, 71, 18, 29, 10};
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        String b = sc.next();
+        int c = sc.nextInt();
 
-        List<Integer> resultAl = new ArrayList<Integer>();
+        System.out.println(a);
+        System.out.println(b == "+");
+        System.out.println(c);
 
-        //filter
-        for (int n : arr) if (n % 2 == 0) resultAl.add(n);
+        if (b == "+") System.out.println(a + c);
+        else if (b == "-") System.out.println(a - c);
+        else if (b == "*") System.out.println(a * c);
+        else if (b == "/") System.out.println(a / c);
 
-        //map
-        for (int i = 0; i < resultAl.size(); i++) {
-            int newValue = resultAl.get(i) * 2;
-            resultAl.set(i, newValue);
-        }
-        System.out.println(resultAl);
     }
 }
