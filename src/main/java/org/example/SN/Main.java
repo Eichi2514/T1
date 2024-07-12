@@ -1,5 +1,7 @@
 package org.example.SN;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 //        int[] a = new int[6];
@@ -14,20 +16,28 @@ public class Main {
 //        a[8] = 9;
 //        a[9] = 10;
 //        String b = "left";
-        System.out.println(Solution.solution(3628800));
+        System.out.println(Solution.solution("as3628800"));
 
     }
 }
 
 class Solution {
-    public static int solution(int n) {
-        int answer = 1;
-        int pt = 1;
-        for (int i = 1; i <= 10; i++) {
-            pt *= i;
-            if (pt <= n) answer = i;
-
+    public static int[] solution(String my_string) {
+        int index = 0;
+        int index2 = 0;
+        for (int i = 0; i < my_string.length(); i++) {
+            if (my_string.charAt(i) % 1 == 0 && my_string.charAt(i) < 97) {
+                index++;
+            }
         }
+        int[] answer = new int[index];
+        for (int i = 0; i < my_string.length(); i++) {
+            if (my_string.charAt(i) % 1 == 0 && my_string.charAt(i) < 97) {
+                answer[index2] = my_string.charAt(i) - 48;
+                index2++;
+            }
+        }
+        Arrays.sort(answer);
         return answer;
     }
 }
