@@ -1,44 +1,41 @@
 package org.example.SN;
 
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
-        String[] a1 = new String[4];
-        String[] a2 = new String[3];
-        a1[0] = "def";
-        a1[1] = "dww";
-        a1[2] = "dzx";
-        a1[3] = "loveaw";
-        a2[0] = "z";
-        a2[1] = "d";
-        a2[2] = "x";
-//        a[7] = 8;
-//        a[8] = 9;
-//        a[9] = 10;
-//        String b = "left";
-        System.out.println(Solution.solution(a2, a1));
+        String[] a = new String[10];
+        a[0] = "3 + 3 = 6";
+        a[1] = "3 - 3 = 0";
+        a[2] = "3 - -3 = 0";
+        a[3] = "3 + 9 = 12";
+        a[4] = "3 + 12 = 15";
+        a[5] = "3 + 15 = 18";
+        a[6] = "3 + 18 = 21";
+        a[7] = "3 + 21 = 24";
+        a[8] = "3 + 24 = 27";
+        a[9] = "3 + 27 = 30";
+        System.out.println(Solution.solution(a));
     }
 }
+
 class Solution {
-    public static int solution(String[] spell, String[] dic) {
-        int answer = 2;
-        String tmp = "";
-        Arrays.sort(spell);
-        for (int i = 0; i < spell.length; i++) {
-            tmp += spell[i];
+    public static String[] solution(String[] quiz) {
+        String[] answer = new String[quiz.length];
+        String[] answer2 = new String[5];
+        for (int i = 0; i < quiz.length; i++) {
+            quiz[i] = quiz[i].replaceAll(" - ", " + -");
+            quiz[i] = quiz[i].replaceAll("--", "");
+            answer2 = quiz[i].split(" ");
+            long X = Integer.parseInt(answer2[0]);
+            long Y = Integer.parseInt(answer2[2]);
+            long Z = Integer.parseInt(answer2[4]);
+            if (Z == X + Y) {
+                answer[i] = "O";
+            } else answer[i] = "X";
         }
-        for (int i = 0; i < dic.length; i++) {
-            String[] tmps = dic[i].split("");
-            Arrays.sort(tmps);
-            dic[i] = "";
-            for (int j = 0; j < tmps.length; j++) {
-                dic[i] += tmps[j];
-            }
-            if (tmp.equals(dic[i])) {
-                answer = 1;
-            }
+
+        for (int i = 0; i < answer.length; i++) {
+            System.out.println(answer[i]);
         }
         return answer;
     }
