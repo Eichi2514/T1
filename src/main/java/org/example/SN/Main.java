@@ -5,38 +5,40 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] a = new int[3];
-        a[0] = 10;
-        a[1] = 11;
-        a[2] = 12;
-//        a[3] = 4;
-//        a[4] = 5;
-//        a[5] = 6;
-//        a[6] = 7;
+        String[] a1 = new String[4];
+        String[] a2 = new String[3];
+        a1[0] = "def";
+        a1[1] = "dww";
+        a1[2] = "dzx";
+        a1[3] = "loveaw";
+        a2[0] = "z";
+        a2[1] = "d";
+        a2[2] = "x";
 //        a[7] = 8;
 //        a[8] = 9;
 //        a[9] = 10;
 //        String b = "left";
-//        System.out.println(Solution.solution(a,13));
-
+        System.out.println(Solution.solution(a2, a1));
     }
 }
 class Solution {
-    public String solution(String s) {
+    public static int solution(String[] spell, String[] dic) {
+        int answer = 2;
         String tmp = "";
-        for (int i = 0; i < s.length(); i++) {
-            int count = -1;
-            for (int j = 0; j < s.length(); j++) {
-                if (s.charAt(i) == s.charAt(j)) {
-                    count++;
-                }
-            }if (count == 0) tmp += s.charAt(i);
+        Arrays.sort(spell);
+        for (int i = 0; i < spell.length; i++) {
+            tmp += spell[i];
         }
-        char[] chars = tmp.toLowerCase().toCharArray();
-        Arrays.sort(chars);
-        String answer = "";
-        for (int i = 0; i < chars.length; i++) {
-            answer += chars[i];
+        for (int i = 0; i < dic.length; i++) {
+            String[] tmps = dic[i].split("");
+            Arrays.sort(tmps);
+            dic[i] = "";
+            for (int j = 0; j < tmps.length; j++) {
+                dic[i] += tmps[j];
+            }
+            if (tmp.equals(dic[i])) {
+                answer = 1;
+            }
         }
         return answer;
     }
