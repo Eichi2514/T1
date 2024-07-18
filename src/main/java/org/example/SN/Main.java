@@ -3,39 +3,52 @@ package org.example.SN;
 
 public class Main {
     public static void main(String[] args) {
-        String[] a = new String[10];
-        a[0] = "3 + 3 = 6";
-        a[1] = "3 - 3 = 0";
-        a[2] = "3 - -3 = 0";
-        a[3] = "3 + 9 = 12";
-        a[4] = "3 + 12 = 15";
-        a[5] = "3 + 15 = 18";
-        a[6] = "3 + 18 = 21";
-        a[7] = "3 + 21 = 24";
-        a[8] = "3 + 24 = 27";
-        a[9] = "3 + 27 = 30";
-        System.out.println(Solution.solution(a));
+        int[] a = new int[6];
+        a[0] = 1;
+        a[1] = 2;
+        a[2] = 3;
+        a[3] = 4;
+        a[4] = 5;
+        a[5] = 6;
+//        a[6] = "3 + 18 = 21";
+//        a[7] = "3 + 21 = 24";
+//        a[8] = "3 + 24 = 27";
+//        a[9] = "3 + 27 = 30";
+        System.out.println(Solution.solution(a,4));
     }
 }
 
 class Solution {
-    public static String[] solution(String[] quiz) {
-        String[] answer = new String[quiz.length];
-        String[] answer2 = new String[5];
-        for (int i = 0; i < quiz.length; i++) {
-            quiz[i] = quiz[i].replaceAll(" - ", " + -");
-            quiz[i] = quiz[i].replaceAll("--", "");
-            answer2 = quiz[i].split(" ");
-            long X = Integer.parseInt(answer2[0]);
-            long Y = Integer.parseInt(answer2[2]);
-            long Z = Integer.parseInt(answer2[4]);
-            if (Z == X + Y) {
-                answer[i] = "O";
-            } else answer[i] = "X";
+    public static int[] solution(int[] numlist, int n) {
+        int[] answer = new int[numlist.length];
+        int max = n+1;
+        int min = n-1;
+        int index = 0;
+        for (int i = 0; i < numlist.length; i++) {
+            if (n == numlist[i]) {
+                answer[index] = numlist[i];
+                index++;
+            }
         }
-
-        for (int i = 0; i < answer.length; i++) {
-            System.out.println(answer[i]);
+        while (true) {
+            if (max <= 10000) {
+                for (int i = 0; i < numlist.length; i++) {
+                    if (max == numlist[i]) {
+                        answer[index] = numlist[i];
+                        index++;
+                    }
+                }
+                max++;
+            }
+            if (min > 0) {
+                for (int i = 0; i < numlist.length; i++) {
+                    if (min == numlist[i]) {
+                        answer[index] = numlist[i];
+                        index++;
+                    }
+                }
+                min--;
+            } else if (max == 10001 && min == 0) break;
         }
         return answer;
     }
