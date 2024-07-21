@@ -7,15 +7,17 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int n = Integer.parseInt(bf.readLine());
-        String s = bf.readLine();
-        String[] tokens = s.split(" ");
-        String v = bf.readLine();
-        int count = 0;
-        for (int i = 0; i < n; i++) {
-            if (tokens[i].equals(v)) count++;
+        String[] tmp = bf.readLine().split(" ");
+        int[] nx = new int[tmp.length];
+        for (int i = 0; i < tmp.length; i++) {
+            nx[i] = Integer.parseInt(tmp[i]);
         }
-        bw.write(String.valueOf(count));
+        tmp = bf.readLine().split(" ");
+        int[] numbers = new int[tmp.length];
+        for (int i = 0; i < tmp.length; i++) {
+            numbers[i] = Integer.parseInt(tmp[i]);
+            if (numbers[i] < nx[1]) {bw.write((numbers[i]) + " ");}
+        }
         bw.flush();
     }
 }
