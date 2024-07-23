@@ -7,24 +7,22 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int[] n = new int[30];
-        for (int i = 0; i < 30; i++) {
-            n[i] = i + 1;
+        int[] n = new int[10];
+        for (int i = 0; i < 10; i++) {
+            n[i] = Integer.parseInt(bf.readLine()) % 42;
         }
-        String tmp;
-        while ((tmp = bf.readLine()) != null) {
-            for (int i = 0; i < 30; i++) {
-                if (n[i] == Integer.parseInt(tmp)) {
-                    n[i] = 0;
+        int count = 10;
+        for (int i = 0; i < 9; i++) {
+            for (int j = 1; j < 10; j++) {
+                if (n[i] == n[j] && n[j] != -1) {
+                    if (i != j) {
+                        n[j] = -1;
+                        count--;
+                    }
                 }
             }
         }
-        for (int i = 0; i < 30; i++) {
-            if (n[i] != 0) {
-                bw.write(n[i] + "");
-                bw.newLine();
-            }
-        }
+        bw.write(Integer.toString(count));
         bw.flush();
     }
 }
