@@ -7,24 +7,23 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        String[] tmp = bf.readLine().split(" ");
-        int number = Integer.parseInt(tmp[0]);
-        int max = Integer.parseInt(tmp[1]);
-        int[] bools = new int[number];
-        for (int i = 0; i < number; i++) {
-            bools[i] = 0;
+        int[] n = new int[30];
+        for (int i = 0; i < 30; i++) {
+            n[i] = i + 1;
         }
-        for (int i = 0; i < max; i++) {
-            tmp = bf.readLine().split(" ");
-            int start = Integer.parseInt(tmp[0]);
-            int end = Integer.parseInt(tmp[1]);
-            int bool = Integer.parseInt(tmp[2]);
-            for (int j = start - 1; j < end; j++) {
-                bools[j] = bool;
+        String tmp;
+        while ((tmp = bf.readLine()) != null) {
+            for (int i = 0; i < 30; i++) {
+                if (n[i] == Integer.parseInt(tmp)) {
+                    n[i] = 0;
+                }
             }
         }
-        for (int i = 0; i < number; i++) {
-            bw.write(bools[i] + " ");
+        for (int i = 0; i < 30; i++) {
+            if (n[i] != 0) {
+                bw.write(n[i] + "");
+                bw.newLine();
+            }
         }
         bw.flush();
     }
