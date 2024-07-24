@@ -2,27 +2,25 @@ package org.example.SN;
 
 
 import java.io.*;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int[] n = new int[10];
-        for (int i = 0; i < 10; i++) {
-            n[i] = Integer.parseInt(bf.readLine()) % 42;
+        int n = Integer.parseInt(bf.readLine());
+        String[] tmp = bf.readLine().split(" ");
+        double[] tmpN = new double[n];
+        double sum = 0;
+        for (int i = 0; i < n; i++) {
+            tmpN[i] += Integer.parseInt(tmp[i]);
         }
-        int count = 10;
-        for (int i = 0; i < 9; i++) {
-            for (int j = 1; j < 10; j++) {
-                if (n[i] == n[j] && n[j] != -1) {
-                    if (i != j) {
-                        n[j] = -1;
-                        count--;
-                    }
-                }
-            }
+        Arrays.sort(tmpN);
+        double max = tmpN[tmpN.length - 1];
+        for (int i = 0; i < n; i++) {
+            sum += tmpN[i] / max;
         }
-        bw.write(Integer.toString(count));
+        bw.write((sum * 100 / n) + "");
         bw.flush();
     }
 }
