@@ -8,11 +8,11 @@ public class Main {
 }
 
 class Solution {
-    public String solution(String str1, String str2) {
-        String answer = "";
-        for (int i = 0; i < str1.length(); i++) {
-            answer += str1.charAt(i)+""+str2.charAt(i);
-        }
+    public int solution(int a, int b) {
+        int answer = 0;
+        String ab = a + "" + b;
+        if (Integer.parseInt(ab) >= (2 * a * b)) answer = Integer.parseInt(ab);
+        else answer = 2 * a * b;
         return answer;
     }
 }
