@@ -4,27 +4,24 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        int[] s = {4, 2, 6, 1, 7, 6};
+        boolean[] s = {true, false, false, true, true};
 
-        System.out.println(Solution.solution("1"));
+        System.out.println(Solution.solution(3, 4, s));
     }
 }
+
 class Solution {
-    public static String solution(String code) {
-        String answer = "";
-        int mod = 0;
-        for (int i = 0; i < code.length(); i++) {
-            if (mod == 0) {
-                if (code.charAt(i) == '1') {
-                    mod = 1;
-                } else if (i % 2 == 0) answer += code.charAt(i);
-            } else if (mod == 1) {
-                if (code.charAt(i) == '1') {
-                    mod = 0;
-                } else if (i % 2 != 0) answer += code.charAt(i);
+    public static int solution(int a, int d, boolean[] included) {
+        int answer = 0;
+        int[] nums = new int[included.length];
+        for (int i = a, j = 0; j < included.length; i += d, j++) {
+            nums[j] = i;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (included[i]) {
+                answer += nums[i];
             }
         }
-        if (answer.equals("")) return "EMPTY";
         return answer;
     }
 }
