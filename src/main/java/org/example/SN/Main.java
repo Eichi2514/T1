@@ -1,27 +1,35 @@
 package org.example.SN;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        boolean[] s = {true, false, false, true, true};
+        int[] s = {293, 1000, 395, 678, 94};
+        int[] ss = {94, 777, 104, 1000, 1, 12};
 
-        System.out.println(Solution.solution(3, 4, s));
+        System.out.println(Solution.solution("banana"));
     }
 }
 
 class Solution {
-    public static int solution(int a, int d, boolean[] included) {
-        int answer = 0;
-        int[] nums = new int[included.length];
-        for (int i = a, j = 0; j < included.length; i += d, j++) {
-            nums[j] = i;
+    public static String[] solution(String my_string) {
+        String[] answer2 = new String[my_string.length()];
+        for (int i = 0; i < my_string.length(); i++) {
+            String tmp = "";
+            for (int j = 0; j <= i; j++) {
+                tmp += my_string.charAt(my_string.length()-j-1);
+            }
+            answer2[i] = tmp;
         }
-        for (int i = 0; i < nums.length; i++) {
-            if (included[i]) {
-                answer += nums[i];
+        String[] answer = new String[my_string.length()];
+        for (int i = 0; i < answer2.length; i++) {
+            answer[i] = "";
+            for (int j = 0; j < answer2[i].length(); j++) {
+                answer[i] += answer2[i].charAt(answer2[i].length()-j-1);
             }
         }
+        Arrays.sort(answer);
         return answer;
     }
 }
