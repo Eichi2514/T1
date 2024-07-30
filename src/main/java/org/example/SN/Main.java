@@ -5,20 +5,19 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        int[] s = {293, 1000, 395, 678, 94};
-        int[] ss = {94, 777, 104, 1000, 1, 12};
-
-        System.out.println(Solution.solution("banana"));
+        int[] s = {4, 2, 6, 1, 7, 6};
+//        int[] ss = {94, 777, 104, 1000, 1, 12};
+//        System.out.println(Solution.solution(s));
     }
 }
 
 class Solution {
-    public static String[] solution(String my_string) {
-        String[] answer = new String[my_string.length()];
-        for (int i = 0; i < answer.length; i++) {
-            answer[i] = my_string.substring(i, my_string.length());
+    public int[] solution(int[] num_list) {
+        int[] answer = new int [num_list.length-5];
+        Arrays.sort(num_list);
+        for (int i = 4; i < num_list.length; i++) {
+            answer[i-4] = num_list[i];
         }
-        Arrays.sort(answer);
         return answer;
     }
 }
