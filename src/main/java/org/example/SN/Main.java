@@ -14,20 +14,9 @@ public class Main {
 
 class Solution {
     public static String[] solution(String my_string) {
-        String[] answer2 = new String[my_string.length()];
-        for (int i = 0; i < my_string.length(); i++) {
-            String tmp = "";
-            for (int j = 0; j <= i; j++) {
-                tmp += my_string.charAt(my_string.length()-j-1);
-            }
-            answer2[i] = tmp;
-        }
         String[] answer = new String[my_string.length()];
-        for (int i = 0; i < answer2.length; i++) {
-            answer[i] = "";
-            for (int j = 0; j < answer2[i].length(); j++) {
-                answer[i] += answer2[i].charAt(answer2[i].length()-j-1);
-            }
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = my_string.substring(i, my_string.length());
         }
         Arrays.sort(answer);
         return answer;
