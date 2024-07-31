@@ -1,7 +1,6 @@
 package org.example.SN;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -12,12 +11,12 @@ public class Main {
 }
 
 class Solution {
-    public int[] solution(int[] num_list) {
-        int[] answer = new int [num_list.length-5];
-        Arrays.sort(num_list);
-        for (int i = 4; i < num_list.length; i++) {
-            answer[i-4] = num_list[i];
+    public int[] solution(int[] arr, int[][] queries) {
+        for (int i = 0; i < queries.length; i++) {
+            for (int j = queries[i][0]; j < queries[i][1]; j++) {
+                if (j%queries[i][2] == 0) arr[j]++;
+            }
         }
-        return answer;
+        return arr;
     }
 }
