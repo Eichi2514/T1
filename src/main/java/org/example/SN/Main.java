@@ -1,22 +1,26 @@
 package org.example.SN;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        int[] s = {4, 2, 6, 1, 7, 6};
-//        int[] ss = {94, 777, 104, 1000, 1, 12};
-//        System.out.println(Solution.solution(s));
+        int[] s = {1, 4, 2, 5, 3};
+        System.out.println(Solution.solution(s));
     }
 }
 
 class Solution {
-    public int[] solution(int[] arr, int[][] queries) {
-        for (int i = 0; i < queries.length; i++) {
-            for (int j = queries[i][0]; j < queries[i][1]; j++) {
-                if (j%queries[i][2] == 0) arr[j]++;
+    public static ArrayList<Integer> solution(int[] arr) {
+        ArrayList<Integer> stk = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            if (stk.size() == 0) stk.add(arr[i]);
+            else if (stk.get(stk.size() - 1) < arr[i]) stk.add(arr[i]);
+            else if (stk.get(stk.size() - 1) >= arr[i]) {
+                stk.remove(stk.size() - 1);
+                i--;
             }
         }
-        return arr;
+        return stk;
     }
 }
